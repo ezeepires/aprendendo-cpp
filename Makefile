@@ -19,9 +19,16 @@ TESTES_SRC   := $(shell find $(FILTRO) -path '*/exercicios/*.cpp' 2>/dev/null | 
 EXEMPLOS_BIN := $(patsubst modulos/%.cpp,build/%.exe,$(EXEMPLOS_SRC))
 TESTES_BIN   := $(patsubst modulos/%.cpp,build/%.exe,$(TESTES_SRC))
 
-.PHONY: all exemplos exercicios test limpar ajuda
+.PHONY: all exemplos exercicios test ci limpar ajuda
 
 all: exemplos exercicios
+
+## Verificação que rodava no CI: garante que TUDO compila.
+## (os testes podem falhar — isso é esperado enquanto você não resolve os TODOs)
+ci: exemplos exercicios
+	@$(MAKE) -C projeto-final
+	@echo ""
+	@echo "Tudo compilou. ✔"
 
 ## Compila cada exemplo em build/<modulo>/exemplos/<nome>.exe
 build/%.exe: modulos/%.cpp

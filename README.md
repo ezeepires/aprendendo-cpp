@@ -53,6 +53,7 @@ make exemplos             # compila todos os exemplos
 make exercicios           # compila todos os exercícios
 make test                 # compila e roda os testes
 make test MODULO=03       # roda só o módulo 3
+make ci                   # compila tudo (exemplos, exercícios e projeto final)
 ./build/01-fundamentos/exercicios/ex01_ola.exe   # roda um exercício específico
 ```
 
