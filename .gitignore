@@ -1,0 +1,20 @@
+# Binários e artefatos de compilação
+build/
+*.exe
+*.o
+*.out
+a.out
+
+# IDEs e editores
+.vscode/
+.idea/
+*.swp
+*~
+compile_commands.json
+.cache/
+
+# Sistema
+.DS_Store
+
+# Projeto final
+projeto-final/agenda

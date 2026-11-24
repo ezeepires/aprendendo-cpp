@@ -1,0 +1,29 @@
+name: compilar
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalar compilador
+        run: sudo apt-get update && sudo apt-get install -y build-essential
+
+      - name: Versão do compilador
+        run: g++ --version
+
+      # Os exercícios ainda não resolvidos devem COMPILAR (e falhar nos testes),
+      # então aqui só verificamos a compilação.
+      - name: Compilar exemplos
+        run: make exemplos
+
+      - name: Compilar exercícios
+        run: make exercicios
+
+      - name: Compilar projeto final
+        run: make -C projeto-final
